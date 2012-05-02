@@ -12,11 +12,16 @@ namespace WindowsFormsApplication1
     public partial class Form1 : Form
     {
         Personaggio pg;
+        Abilita my_abilita;
         Random generatore;
 
         public Form1()
         {
             InitializeComponent();
+
+            my_abilita = new Abilita();
+            foreach (String s in my_abilita.abilita)
+                dataGridView1.Rows.Add(s, "0", "0");
 
             generatore = new Random();
             pg=new Personaggio();
@@ -27,13 +32,17 @@ namespace WindowsFormsApplication1
             pg.Sag = 8;
             pg.Car = 8;
 
+            
             aggiornaSpinBox();
+            
+            
         }
         
         private void button1_Click(object sender, EventArgs e)
         {
             pg.GeneraCaratteristiche(generatore);
-            aggiornaSpinBox();            
+            aggiornaSpinBox();
+           
         }
                    
 
@@ -108,6 +117,11 @@ namespace WindowsFormsApplication1
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
         }  
 
        

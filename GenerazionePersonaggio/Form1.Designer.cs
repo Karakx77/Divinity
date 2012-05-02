@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -50,245 +51,347 @@
             this.boxRazza = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.labelPunti = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.caratterisicheBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Abilita = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Valore_base = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Mod = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.spinFor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinDes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinCos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinInt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinSag)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinCar)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.caratterisicheBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(79, 59);
+            this.label1.Location = new System.Drawing.Point(7, 65);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(33, 13);
+            this.label1.Size = new System.Drawing.Size(44, 17);
             this.label1.TabIndex = 6;
             this.label1.Text = "Forza";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(58, 86);
+            this.label2.Location = new System.Drawing.Point(7, 93);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 13);
+            this.label2.Size = new System.Drawing.Size(72, 17);
             this.label2.TabIndex = 7;
             this.label2.Text = "Destrezza";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(48, 113);
+            this.label3.Location = new System.Drawing.Point(7, 123);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 13);
+            this.label3.Size = new System.Drawing.Size(85, 17);
             this.label3.TabIndex = 8;
             this.label3.Text = "Costituzione";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(52, 140);
+            this.label4.Location = new System.Drawing.Point(7, 153);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 13);
+            this.label4.Size = new System.Drawing.Size(79, 17);
             this.label4.TabIndex = 9;
             this.label4.Text = "Intelligenza";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(58, 167);
+            this.label5.Location = new System.Drawing.Point(7, 183);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(54, 13);
+            this.label5.Size = new System.Drawing.Size(71, 17);
             this.label5.TabIndex = 10;
             this.label5.Text = "Saggezza";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(68, 193);
+            this.label6.Location = new System.Drawing.Point(7, 213);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(44, 13);
+            this.label6.Size = new System.Drawing.Size(59, 17);
             this.label6.TabIndex = 11;
             this.label6.Text = "Carisma";
             // 
             // modFor
             // 
             this.modFor.AutoSize = true;
-            this.modFor.Location = new System.Drawing.Point(172, 60);
+            this.modFor.Location = new System.Drawing.Point(171, 65);
+            this.modFor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.modFor.Name = "modFor";
-            this.modFor.Size = new System.Drawing.Size(12, 13);
+            this.modFor.Size = new System.Drawing.Size(12, 17);
             this.modFor.TabIndex = 12;
             this.modFor.Text = "\\";
             // 
             // modDes
             // 
             this.modDes.AutoSize = true;
-            this.modDes.Location = new System.Drawing.Point(172, 87);
+            this.modDes.Location = new System.Drawing.Point(171, 93);
+            this.modDes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.modDes.Name = "modDes";
-            this.modDes.Size = new System.Drawing.Size(12, 13);
+            this.modDes.Size = new System.Drawing.Size(12, 17);
             this.modDes.TabIndex = 13;
             this.modDes.Text = "\\";
             // 
             // modCos
             // 
             this.modCos.AutoSize = true;
-            this.modCos.Location = new System.Drawing.Point(172, 114);
+            this.modCos.Location = new System.Drawing.Point(171, 123);
+            this.modCos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.modCos.Name = "modCos";
-            this.modCos.Size = new System.Drawing.Size(12, 13);
+            this.modCos.Size = new System.Drawing.Size(12, 17);
             this.modCos.TabIndex = 14;
             this.modCos.Text = "\\";
             // 
             // modInt
             // 
             this.modInt.AutoSize = true;
-            this.modInt.Location = new System.Drawing.Point(172, 140);
+            this.modInt.Location = new System.Drawing.Point(171, 153);
+            this.modInt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.modInt.Name = "modInt";
-            this.modInt.Size = new System.Drawing.Size(12, 13);
+            this.modInt.Size = new System.Drawing.Size(12, 17);
             this.modInt.TabIndex = 15;
             this.modInt.Text = "\\";
             // 
             // modSag
             // 
             this.modSag.AutoSize = true;
-            this.modSag.Location = new System.Drawing.Point(172, 167);
+            this.modSag.Location = new System.Drawing.Point(171, 183);
+            this.modSag.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.modSag.Name = "modSag";
-            this.modSag.Size = new System.Drawing.Size(12, 13);
+            this.modSag.Size = new System.Drawing.Size(12, 17);
             this.modSag.TabIndex = 16;
             this.modSag.Text = "\\";
             // 
             // modCar
             // 
             this.modCar.AutoSize = true;
-            this.modCar.Location = new System.Drawing.Point(172, 193);
+            this.modCar.Location = new System.Drawing.Point(171, 213);
+            this.modCar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.modCar.Name = "modCar";
-            this.modCar.Size = new System.Drawing.Size(12, 13);
+            this.modCar.Size = new System.Drawing.Size(12, 17);
             this.modCar.TabIndex = 17;
             this.modCar.Text = "\\";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(148, 302);
+            this.button1.Location = new System.Drawing.Point(10, 263);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 31);
+            this.button1.Size = new System.Drawing.Size(190, 38);
             this.button1.TabIndex = 18;
-            this.button1.Text = "Calcola";
+            this.button1.Text = "Genera Caratteristiche";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // spinFor
             // 
-            this.spinFor.Location = new System.Drawing.Point(118, 58);
+            this.spinFor.Location = new System.Drawing.Point(99, 63);
+            this.spinFor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.spinFor.Name = "spinFor";
-            this.spinFor.Size = new System.Drawing.Size(48, 20);
+            this.spinFor.Size = new System.Drawing.Size(64, 22);
             this.spinFor.TabIndex = 19;
             this.spinFor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.spinFor.ValueChanged += new System.EventHandler(this.spinFor_ValueChanged);
             // 
             // spinDes
             // 
-            this.spinDes.Location = new System.Drawing.Point(118, 85);
+            this.spinDes.Location = new System.Drawing.Point(99, 91);
+            this.spinDes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.spinDes.Name = "spinDes";
-            this.spinDes.Size = new System.Drawing.Size(48, 20);
+            this.spinDes.Size = new System.Drawing.Size(64, 22);
             this.spinDes.TabIndex = 20;
             this.spinDes.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.spinDes.ValueChanged += new System.EventHandler(this.spinDes_ValueChanged);
             // 
             // spinCos
             // 
-            this.spinCos.Location = new System.Drawing.Point(118, 112);
+            this.spinCos.Location = new System.Drawing.Point(99, 121);
+            this.spinCos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.spinCos.Name = "spinCos";
-            this.spinCos.Size = new System.Drawing.Size(48, 20);
+            this.spinCos.Size = new System.Drawing.Size(64, 22);
             this.spinCos.TabIndex = 21;
             this.spinCos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.spinCos.ValueChanged += new System.EventHandler(this.spinCos_ValueChanged);
             // 
             // spinInt
             // 
-            this.spinInt.Location = new System.Drawing.Point(118, 138);
+            this.spinInt.Location = new System.Drawing.Point(99, 151);
+            this.spinInt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.spinInt.Name = "spinInt";
-            this.spinInt.Size = new System.Drawing.Size(48, 20);
+            this.spinInt.Size = new System.Drawing.Size(64, 22);
             this.spinInt.TabIndex = 22;
             this.spinInt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.spinInt.ValueChanged += new System.EventHandler(this.spinInt_ValueChanged);
             // 
             // spinSag
             // 
-            this.spinSag.Location = new System.Drawing.Point(118, 165);
+            this.spinSag.Location = new System.Drawing.Point(99, 181);
+            this.spinSag.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.spinSag.Name = "spinSag";
-            this.spinSag.Size = new System.Drawing.Size(48, 20);
+            this.spinSag.Size = new System.Drawing.Size(64, 22);
             this.spinSag.TabIndex = 23;
             this.spinSag.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.spinSag.ValueChanged += new System.EventHandler(this.spinSag_ValueChanged);
             // 
             // spinCar
             // 
-            this.spinCar.Location = new System.Drawing.Point(118, 191);
+            this.spinCar.Location = new System.Drawing.Point(99, 211);
+            this.spinCar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.spinCar.Name = "spinCar";
-            this.spinCar.Size = new System.Drawing.Size(48, 20);
+            this.spinCar.Size = new System.Drawing.Size(64, 22);
             this.spinCar.TabIndex = 24;
             this.spinCar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.spinCar.ValueChanged += new System.EventHandler(this.spinCar_ValueChanged);
             // 
             // boxRazza
             // 
+            this.boxRazza.DisplayMember = "fdfdf";
             this.boxRazza.FormattingEnabled = true;
             this.boxRazza.Items.AddRange(new object[] {
             "Umano",
             "Nano",
             "Elfo",
             "Mezzorco"});
-            this.boxRazza.Location = new System.Drawing.Point(248, 56);
+            this.boxRazza.Location = new System.Drawing.Point(371, 46);
+            this.boxRazza.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.boxRazza.Name = "boxRazza";
-            this.boxRazza.Size = new System.Drawing.Size(121, 21);
+            this.boxRazza.Size = new System.Drawing.Size(160, 24);
             this.boxRazza.TabIndex = 25;
+            this.boxRazza.Tag = "";
             this.boxRazza.SelectedIndexChanged += new System.EventHandler(this.boxRazza_SelectedIndexChanged);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(26, 24);
+            this.label7.Location = new System.Drawing.Point(102, 28);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(34, 13);
+            this.label7.Size = new System.Drawing.Size(44, 17);
             this.label7.TabIndex = 26;
             this.label7.Text = "Punti:";
             // 
             // labelPunti
             // 
             this.labelPunti.AutoSize = true;
-            this.labelPunti.Location = new System.Drawing.Point(66, 24);
+            this.labelPunti.Location = new System.Drawing.Point(154, 28);
+            this.labelPunti.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelPunti.Name = "labelPunti";
-            this.labelPunti.Size = new System.Drawing.Size(35, 13);
+            this.labelPunti.Size = new System.Drawing.Size(46, 17);
             this.labelPunti.TabIndex = 27;
             this.labelPunti.Text = "label8";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(424, 12);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(48, 17);
+            this.label8.TabIndex = 28;
+            this.label8.Text = "Razza";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.spinFor);
+            this.groupBox1.Controls.Add(this.modFor);
+            this.groupBox1.Controls.Add(this.labelPunti);
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.spinDes);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.spinCos);
+            this.groupBox1.Controls.Add(this.spinInt);
+            this.groupBox1.Controls.Add(this.spinCar);
+            this.groupBox1.Controls.Add(this.modCar);
+            this.groupBox1.Controls.Add(this.spinSag);
+            this.groupBox1.Controls.Add(this.modSag);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.modInt);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.modCos);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.modDes);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(217, 317);
+            this.groupBox1.TabIndex = 29;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Caratteristiche";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Abilita,
+            this.Valore_base,
+            this.Mod});
+            this.dataGridView1.Location = new System.Drawing.Point(235, 77);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(340, 471);
+            this.dataGridView1.TabIndex = 31;
+            // 
+            // caratterisicheBindingSource
+            // 
+            this.caratterisicheBindingSource.DataSource = typeof(WindowsFormsApplication1.Libreria.Caratterisiche);
+            // 
+            // Abilita
+            // 
+            this.Abilita.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Abilita.HeaderText = "Abilità";
+            this.Abilita.Name = "Abilita";
+            this.Abilita.ReadOnly = true;
+            this.Abilita.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Abilita.Width = 52;
+            // 
+            // Valore_base
+            // 
+            this.Valore_base.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Valore_base.HeaderText = "Base";
+            this.Valore_base.Name = "Valore_base";
+            this.Valore_base.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Valore_base.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Valore_base.Width = 46;
+            // 
+            // Mod
+            // 
+            this.Mod.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Mod.HeaderText = "Mod";
+            this.Mod.Name = "Mod";
+            this.Mod.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Mod.Width = 41;
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(399, 360);
-            this.Controls.Add(this.labelPunti);
-            this.Controls.Add(this.label7);
+            this.ClientSize = new System.Drawing.Size(611, 600);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.boxRazza);
-            this.Controls.Add(this.spinCar);
-            this.Controls.Add(this.spinSag);
-            this.Controls.Add(this.spinInt);
-            this.Controls.Add(this.spinCos);
-            this.Controls.Add(this.spinDes);
-            this.Controls.Add(this.spinFor);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.modCar);
-            this.Controls.Add(this.modSag);
-            this.Controls.Add(this.modInt);
-            this.Controls.Add(this.modCos);
-            this.Controls.Add(this.modDes);
-            this.Controls.Add(this.modFor);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -298,6 +401,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.spinInt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinSag)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinCar)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.caratterisicheBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -327,6 +434,13 @@
         private System.Windows.Forms.ComboBox boxRazza;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label labelPunti;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.BindingSource caratterisicheBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Abilita;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Valore_base;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Mod;
     }
 }
 
