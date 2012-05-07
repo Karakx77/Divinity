@@ -54,10 +54,12 @@
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.caratterisicheBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Abilita = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Valore_base = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Mod = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Totale = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gradi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modCaratteristica = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Altro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.caratterisicheBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.spinFor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinDes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinCos)).BeginInit();
@@ -192,7 +194,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(10, 263);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(190, 38);
             this.button1.TabIndex = 18;
@@ -203,7 +205,7 @@
             // spinFor
             // 
             this.spinFor.Location = new System.Drawing.Point(99, 63);
-            this.spinFor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spinFor.Margin = new System.Windows.Forms.Padding(4);
             this.spinFor.Name = "spinFor";
             this.spinFor.Size = new System.Drawing.Size(64, 22);
             this.spinFor.TabIndex = 19;
@@ -213,7 +215,7 @@
             // spinDes
             // 
             this.spinDes.Location = new System.Drawing.Point(99, 91);
-            this.spinDes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spinDes.Margin = new System.Windows.Forms.Padding(4);
             this.spinDes.Name = "spinDes";
             this.spinDes.Size = new System.Drawing.Size(64, 22);
             this.spinDes.TabIndex = 20;
@@ -223,7 +225,7 @@
             // spinCos
             // 
             this.spinCos.Location = new System.Drawing.Point(99, 121);
-            this.spinCos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spinCos.Margin = new System.Windows.Forms.Padding(4);
             this.spinCos.Name = "spinCos";
             this.spinCos.Size = new System.Drawing.Size(64, 22);
             this.spinCos.TabIndex = 21;
@@ -233,7 +235,7 @@
             // spinInt
             // 
             this.spinInt.Location = new System.Drawing.Point(99, 151);
-            this.spinInt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spinInt.Margin = new System.Windows.Forms.Padding(4);
             this.spinInt.Name = "spinInt";
             this.spinInt.Size = new System.Drawing.Size(64, 22);
             this.spinInt.TabIndex = 22;
@@ -243,7 +245,7 @@
             // spinSag
             // 
             this.spinSag.Location = new System.Drawing.Point(99, 181);
-            this.spinSag.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spinSag.Margin = new System.Windows.Forms.Padding(4);
             this.spinSag.Name = "spinSag";
             this.spinSag.Size = new System.Drawing.Size(64, 22);
             this.spinSag.TabIndex = 23;
@@ -253,7 +255,7 @@
             // spinCar
             // 
             this.spinCar.Location = new System.Drawing.Point(99, 211);
-            this.spinCar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spinCar.Margin = new System.Windows.Forms.Padding(4);
             this.spinCar.Name = "spinCar";
             this.spinCar.Size = new System.Drawing.Size(64, 22);
             this.spinCar.TabIndex = 24;
@@ -269,8 +271,8 @@
             "Nano",
             "Elfo",
             "Mezzorco"});
-            this.boxRazza.Location = new System.Drawing.Point(371, 46);
-            this.boxRazza.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.boxRazza.Location = new System.Drawing.Point(545, 37);
+            this.boxRazza.Margin = new System.Windows.Forms.Padding(4);
             this.boxRazza.Name = "boxRazza";
             this.boxRazza.Size = new System.Drawing.Size(160, 24);
             this.boxRazza.TabIndex = 25;
@@ -300,7 +302,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(424, 12);
+            this.label8.Location = new System.Drawing.Point(600, 12);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(48, 17);
             this.label8.TabIndex = 28;
@@ -344,57 +346,73 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Abilita,
-            this.Valore_base,
-            this.Mod});
-            this.dataGridView1.Location = new System.Drawing.Point(235, 77);
+            this.Totale,
+            this.gradi,
+            this.modCaratteristica,
+            this.Altro});
+            this.dataGridView1.Location = new System.Drawing.Point(347, 75);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(340, 471);
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(515, 688);
             this.dataGridView1.TabIndex = 31;
+            this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
+            // 
+            // Abilita
+            // 
+            this.Abilita.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Abilita.HeaderText = "Abilità";
+            this.Abilita.Name = "Abilita";
+            this.Abilita.ReadOnly = true;
+            this.Abilita.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Totale
+            // 
+            this.Totale.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Totale.HeaderText = "Totale";
+            this.Totale.Name = "Totale";
+            this.Totale.ReadOnly = true;
+            this.Totale.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // gradi
+            // 
+            this.gradi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.gradi.HeaderText = "Gradi";
+            this.gradi.Name = "gradi";
+            this.gradi.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.gradi.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // modCaratteristica
+            // 
+            this.modCaratteristica.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.modCaratteristica.HeaderText = "Mod";
+            this.modCaratteristica.Name = "modCaratteristica";
+            this.modCaratteristica.ReadOnly = true;
+            this.modCaratteristica.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Altro
+            // 
+            this.Altro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Altro.HeaderText = "Altro";
+            this.Altro.Name = "Altro";
+            this.Altro.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // caratterisicheBindingSource
             // 
             this.caratterisicheBindingSource.DataSource = typeof(WindowsFormsApplication1.Libreria.Caratterisiche);
             // 
-            // Abilita
-            // 
-            this.Abilita.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Abilita.HeaderText = "Abilità";
-            this.Abilita.Name = "Abilita";
-            this.Abilita.ReadOnly = true;
-            this.Abilita.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Abilita.Width = 52;
-            // 
-            // Valore_base
-            // 
-            this.Valore_base.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Valore_base.HeaderText = "Base";
-            this.Valore_base.Name = "Valore_base";
-            this.Valore_base.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Valore_base.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Valore_base.Width = 46;
-            // 
-            // Mod
-            // 
-            this.Mod.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Mod.HeaderText = "Mod";
-            this.Mod.Name = "Mod";
-            this.Mod.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Mod.Width = 41;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(611, 600);
+            this.ClientSize = new System.Drawing.Size(874, 808);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.boxRazza);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.spinFor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinDes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinCos)).EndInit();
@@ -439,8 +457,10 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource caratterisicheBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn Abilita;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Valore_base;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Mod;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Totale;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gradi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn modCaratteristica;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Altro;
     }
 }
 

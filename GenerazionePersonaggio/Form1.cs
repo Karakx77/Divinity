@@ -18,31 +18,22 @@ namespace WindowsFormsApplication1
         public Form1()
         {
             InitializeComponent();
+            
+            pg = new Personaggio(); 
+            my_abilita = new Abilita(pg);
+            generatore = new Random(); 
 
-            my_abilita = new Abilita();
             foreach (String s in my_abilita.abilita)
-                dataGridView1.Rows.Add(s, "0", "0");
-
-            generatore = new Random();
-            pg=new Personaggio();
-            pg.For = 8;
-            pg.Des = 8;
-            pg.Cos = 8;
-            pg.Int = 8;
-            pg.Sag = 8;
-            pg.Car = 8;
-
+                dataGridView1.Rows.Add(s);
             
-            aggiornaSpinBox();
-            
-            
+            aggiorna();                       
         }
         
         private void button1_Click(object sender, EventArgs e)
         {
             pg.GeneraCaratteristiche(generatore);
-            aggiornaSpinBox();
-           
+            aggiorna();
+            return;
         }
                    
 
@@ -65,29 +56,47 @@ namespace WindowsFormsApplication1
                 default:
                     pg.SetRazza(new Umano());
                     break;
-
-
             }
-            aggiornaSpinBox();
-        }        
+            aggiorna();
+            return;
+        }
+
+        private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            int riga = e.RowIndex;
+            int colonna = e.ColumnIndex;
+
+            string abilita = (String)dataGridView1.Rows[riga].Cells[0].Value;
+            int valore;
+
+            if (Int32.TryParse((String)dataGridView1.Rows[riga].Cells[colonna].Value, out valore))
+            {
+                if (colonna == 2)
+                { my_abilita.setPunteggioBase(abilita, valore); }
+                else if (colonna == 4)
+                { my_abilita.setPunteggioBonus(abilita, valore); }
+            }
+            aggiornaAbilita();
+            return;
+        }
 
         private void spinFor_ValueChanged(object sender, EventArgs e)
-        { pg.For = (int)spinFor.Value; calcolaBonus(); }
+        { pg.For = (int)spinFor.Value; aggiorna(); }
 
         private void spinDes_ValueChanged(object sender, EventArgs e)
-        { pg.Des = (int)spinDes.Value; calcolaBonus(); }
+        { pg.Des = (int)spinDes.Value; aggiorna(); }
 
         private void spinCos_ValueChanged(object sender, EventArgs e)
-        { pg.Cos = (int)spinCos.Value; calcolaBonus(); }
+        { pg.Cos = (int)spinCos.Value; aggiorna(); }
 
         private void spinInt_ValueChanged(object sender, EventArgs e)
-        { pg.Int = (int)spinInt.Value; calcolaBonus(); }
+        { pg.Int = (int)spinInt.Value; aggiorna(); }
 
         private void spinSag_ValueChanged(object sender, EventArgs e)
-        { pg.Sag = (int)spinSag.Value; calcolaBonus(); }
+        { pg.Sag = (int)spinSag.Value; aggiorna(); }
 
         private void spinCar_ValueChanged(object sender, EventArgs e)
-        { pg.Car = (int)spinCar.Value; calcolaBonus(); }
+        { pg.Car = (int)spinCar.Value; aggiorna(); }
 
 
         private void aggiornaSpinBox()
@@ -98,33 +107,45 @@ namespace WindowsFormsApplication1
             spinInt.Value = pg.Int;
             spinSag.Value = pg.Sag;
             spinCar.Value = pg.Car;
-            calcolaBonus();
+            return;
         }
 
         private void calcolaBonus()
+        {            
+            modFor.Text = pg.getBonusByCaratteristica(Libreria.Caratterisiche.FOR).ToString();
+            modDes.Text = pg.getBonusByCaratteristica(Libreria.Caratterisiche.DES).ToString();
+            modCos.Text = pg.getBonusByCaratteristica(Libreria.Caratterisiche.COS).ToString();
+            modInt.Text = pg.getBonusByCaratteristica(Libreria.Caratterisiche.INT).ToString();
+            modSag.Text = pg.getBonusByCaratteristica(Libreria.Caratterisiche.SAG).ToString();
+            modCar.Text = pg.getBonusByCaratteristica(Libreria.Caratterisiche.CAR).ToString();
+            labelPunti.Text = pg.getPunti().ToString();
+            return;
+        }
+
+        public void aggiornaAbilita()
         {
+            int i = 0;
             
-            modFor.Text = "" + ((pg.For / 2) - 5);
-            modDes.Text = "" + ((pg.Des / 2) - 5);
-            modCos.Text = "" + ((pg.Cos / 2) - 5);
-            modInt.Text = "" + ((pg.Int / 2) - 5);
-            modSag.Text = "" + ((pg.Sag / 2) - 5);
-            modCar.Text = "" + ((pg.Car / 2) - 5);
-
-            labelPunti.Text = "" + pg.getPunti();
+            foreach (String s in my_abilita.abilita)
+            {
+                dataGridView1.Rows[i].Cells[1].Value = my_abilita.getPunteggio(s).ToString();
+                dataGridView1.Rows[i].Cells[2].Value = my_abilita.getPunteggioBase(s).ToString();
+                dataGridView1.Rows[i].Cells[3].Value = my_abilita.getPunteggioMod(s).ToString();
+                dataGridView1.Rows[i].Cells[4].Value = my_abilita.getPunteggioBonus(s).ToString();
+                i++;
+            }
+            return;            
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        public void aggiorna()
         {
-
+            aggiornaSpinBox();
+            calcolaBonus();
+            aggiornaAbilita();
+            return;
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
-        }  
-
-       
+      
     }
 
 

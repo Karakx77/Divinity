@@ -88,6 +88,12 @@ namespace WindowsFormsApplication1
         public Personaggio()
         {
             razza = new Umano();
+            forza = 8;
+            destrezza = 8;
+            costituzione = 8;
+            intelligenza = 8;
+            saggezza = 8;
+            carisma = 8;
         }
         public void GeneraCaratteristiche(Random gen)
         {
@@ -126,6 +132,30 @@ namespace WindowsFormsApplication1
             else
                 p = calcolaPunti(caratteristica - 1) + ((caratteristica - 1) / 2 - 5);
             return p;        
+        }
+
+        public int getBonusByCaratteristica(Libreria.Caratterisiche c)
+        {
+            switch (c)
+            { 
+                case Libreria.Caratterisiche.FOR:
+                    return For / 2 - 5;
+                case Libreria.Caratterisiche.DES:
+                    return Des / 2 - 5;
+                case Libreria.Caratterisiche.COS:
+                    return Cos / 2 - 5;
+                case Libreria.Caratterisiche.INT:
+                    return Int / 2 - 5;
+                case Libreria.Caratterisiche.SAG:
+                    return Sag / 2 - 5;
+                case Libreria.Caratterisiche.CAR:
+                    return Car / 2 - 5;
+                default:
+                    return 0;
+            
+            }
+        
+        
         }
 
     }
