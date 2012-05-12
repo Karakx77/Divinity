@@ -9,25 +9,25 @@ namespace WindowsFormsApplication1
     {
         public String[] abilita;
         private Dictionary<String, int> dizBase;
-        private Dictionary<String, int> dizBonus;
         private Dictionary<String, Libreria.Caratterisiche> dizMod;
+
+        private Dictionary<String, GestioneBonus> dizBonus;
         
         Personaggio personaggio;
 
         public Abilita(Personaggio p)
         {
-            
             String[] riga = System.IO.File.ReadAllLines(@"C:\TestFolder\abilita.txt");
             personaggio = p;
             dizBase = new Dictionary<string, int>();
-            dizBonus = new Dictionary<string, int>();
+            dizBonus = new Dictionary<string, GestioneBonus>();
             dizMod = new Dictionary<string, Libreria.Caratterisiche>();
 
             foreach (String s in riga)
             {
                 String[] aux = s.Split(';');
                 dizBase[aux[0]] = 0;
-                dizBonus[aux[0]] = 0;
+                dizBonus[aux[0]] = new GestioneBonus();
 
                 switch (aux[1])
                 {
@@ -59,9 +59,9 @@ namespace WindowsFormsApplication1
         public int getPunteggio(string abilita)
         {
             int punteggio;
-            punteggio = dizBase[abilita];
-            punteggio += dizBonus[abilita];
-            punteggio += personaggio.getBonusByCaratteristica(dizMod[abilita]);        
+            punteggio = getPunteggioBase(abilita);
+            punteggio += getPunteggioBonus(abilita);
+            punteggio += personaggio.getModificatore(dizMod[abilita]);        
             return punteggio;
         }
 
@@ -75,16 +75,12 @@ namespace WindowsFormsApplication1
         public int getPunteggioMod(string abilita)
         {
             int punteggio;
-            punteggio = personaggio.getBonusByCaratteristica(dizMod[abilita]);
+            punteggio = personaggio.getModificatore(dizMod[abilita]);
             return punteggio;
         }
 
         public int getPunteggioBonus(string abilita)
-        {
-            int punteggio;
-            punteggio = dizBonus[abilita];
-            return punteggio;       
-        }
+        { return dizBonus[abilita].sum(); }
 
         public void setPunteggioBase(string abilita, int value)
         {
@@ -93,13 +89,28 @@ namespace WindowsFormsApplication1
                 dizBase[abilita] = value;        
         }
 
-        public void setPunteggioBonus(string abilita, int value)
+        public void setPunteggioBonus(string abilita, int value, string label)
         {
-            int i;
-            if (dizBonus.TryGetValue(abilita, out i))
-                dizBonus[abilita] = value;
+            if (dizBonus.ContainsKey(abilita))
+            { dizBonus[abilita].add(label, value); }
+            return;   
         }
 
+        public GestioneBonus getAllPunteggiBonus(string abilita)
+        { return dizBonus[abilita];  }
+
+        public void removePunteggioBonus(string abilita, string label)
+        {
+            dizBonus[abilita].erase(label);
+            return;
+        }
+
+        public GestioneBonus getBonus(string abilita)
+        {
+            if (dizBonus.ContainsKey(abilita))
+            { return dizBonus[abilita]; }
+            return null;
+        }
 
     }
 }

@@ -63,9 +63,44 @@ namespace WindowsFormsApplication1
             INT,
             SAG,
             CAR
-        };
-
-        
+        };    
 
    }
+
+    public class GestioneBonus
+    {
+        public Dictionary<string, int> diz;
+        public GestioneBonus()
+        {
+            diz = new Dictionary<string, int>();
+        }
+
+        public void add(string label, int value)
+        { diz[label] = value; }
+
+        public int get(string label)
+        {
+            if (diz.ContainsKey(label))
+                return diz[label];
+            else
+                return 0;
+        }
+
+        public int sum()
+        {
+            int val = 0;
+            foreach(int i in diz.Values)
+                val += i;
+            return val;        
+        }
+
+        public void erase(string label)
+        {
+            if (diz.ContainsKey(label))
+                diz.Remove(label);
+            return;        
+        }
+    
+    
+    }
 }
