@@ -75,6 +75,13 @@
             this.mod = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.labelBonusView = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nuovoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.apriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salvaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.livello_numericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.labelEsperienza = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.spinFor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinDes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinCos)).BeginInit();
@@ -85,6 +92,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.Abilita_dataGridView)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Bonus_dataGridView)).BeginInit();
+            this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.livello_numericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -222,6 +231,16 @@
             // 
             this.spinFor.Location = new System.Drawing.Point(99, 63);
             this.spinFor.Margin = new System.Windows.Forms.Padding(4);
+            this.spinFor.Maximum = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
+            this.spinFor.Minimum = new decimal(new int[] {
+            500,
+            0,
+            0,
+            -2147483648});
             this.spinFor.Name = "spinFor";
             this.spinFor.Size = new System.Drawing.Size(64, 22);
             this.spinFor.TabIndex = 19;
@@ -286,7 +305,7 @@
             "Nano",
             "Elfo",
             "Mezzorco"});
-            this.boxRazza.Location = new System.Drawing.Point(345, 37);
+            this.boxRazza.Location = new System.Drawing.Point(345, 70);
             this.boxRazza.Margin = new System.Windows.Forms.Padding(4);
             this.boxRazza.Name = "boxRazza";
             this.boxRazza.Size = new System.Drawing.Size(160, 24);
@@ -318,7 +337,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(401, 17);
+            this.label8.Location = new System.Drawing.Point(395, 45);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(48, 17);
             this.label8.TabIndex = 28;
@@ -353,7 +372,7 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(12, 45);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(283, 317);
             this.groupBox1.TabIndex = 29;
@@ -432,7 +451,7 @@
             this.gradi,
             this.modCaratteristica,
             this.Altro});
-            this.Abilita_dataGridView.Location = new System.Drawing.Point(345, 68);
+            this.Abilita_dataGridView.Location = new System.Drawing.Point(345, 101);
             this.Abilita_dataGridView.MultiSelect = false;
             this.Abilita_dataGridView.Name = "Abilita_dataGridView";
             this.Abilita_dataGridView.RowTemplate.Height = 24;
@@ -490,7 +509,7 @@
             this.comboBox1.Items.AddRange(new object[] {
             "Guerriero",
             "Mago"});
-            this.comboBox1.Location = new System.Drawing.Point(715, 37);
+            this.comboBox1.Location = new System.Drawing.Point(715, 70);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(160, 24);
             this.comboBox1.TabIndex = 32;
@@ -499,7 +518,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(775, 17);
+            this.label9.Location = new System.Drawing.Point(769, 45);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(45, 17);
             this.label9.TabIndex = 33;
@@ -510,7 +529,7 @@
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Location = new System.Drawing.Point(12, 335);
+            this.groupBox2.Location = new System.Drawing.Point(12, 368);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(283, 133);
             this.groupBox2.TabIndex = 34;
@@ -552,7 +571,7 @@
             this.nome,
             this.mod,
             this.delete});
-            this.Bonus_dataGridView.Location = new System.Drawing.Point(345, 418);
+            this.Bonus_dataGridView.Location = new System.Drawing.Point(345, 444);
             this.Bonus_dataGridView.Name = "Bonus_dataGridView";
             this.Bonus_dataGridView.RowTemplate.Height = 24;
             this.Bonus_dataGridView.Size = new System.Drawing.Size(530, 118);
@@ -586,18 +605,86 @@
             // labelBonusView
             // 
             this.labelBonusView.AutoSize = true;
-            this.labelBonusView.Location = new System.Drawing.Point(342, 391);
+            this.labelBonusView.Location = new System.Drawing.Point(342, 424);
             this.labelBonusView.Name = "labelBonusView";
             this.labelBonusView.Size = new System.Drawing.Size(178, 17);
             this.labelBonusView.TabIndex = 36;
             this.labelBonusView.Text = "Nessun Bonus Selezionato";
             this.labelBonusView.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(901, 28);
+            this.menuStrip1.TabIndex = 37;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.nuovoToolStripMenuItem,
+            this.apriToolStripMenuItem,
+            this.salvaToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // nuovoToolStripMenuItem
+            // 
+            this.nuovoToolStripMenuItem.Name = "nuovoToolStripMenuItem";
+            this.nuovoToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.nuovoToolStripMenuItem.Text = "Nuovo";
+            // 
+            // apriToolStripMenuItem
+            // 
+            this.apriToolStripMenuItem.Name = "apriToolStripMenuItem";
+            this.apriToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.apriToolStripMenuItem.Text = "Apri";
+            // 
+            // salvaToolStripMenuItem
+            // 
+            this.salvaToolStripMenuItem.Name = "salvaToolStripMenuItem";
+            this.salvaToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.salvaToolStripMenuItem.Text = "Salva";
+            // 
+            // livello_numericUpDown
+            // 
+            this.livello_numericUpDown.Location = new System.Drawing.Point(582, 43);
+            this.livello_numericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.livello_numericUpDown.Name = "livello_numericUpDown";
+            this.livello_numericUpDown.Size = new System.Drawing.Size(55, 22);
+            this.livello_numericUpDown.TabIndex = 38;
+            this.livello_numericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.livello_numericUpDown.ValueChanged += new System.EventHandler(this.livello_numericUpDown_ValueChanged);
+            // 
+            // labelEsperienza
+            // 
+            this.labelEsperienza.AutoSize = true;
+            this.labelEsperienza.Location = new System.Drawing.Point(579, 68);
+            this.labelEsperienza.Name = "labelEsperienza";
+            this.labelEsperienza.Size = new System.Drawing.Size(16, 17);
+            this.labelEsperienza.TabIndex = 39;
+            this.labelEsperienza.Text = "0";
+            this.labelEsperienza.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // FinestraGenerazionePG
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(901, 584);
+            this.Controls.Add(this.labelEsperienza);
+            this.Controls.Add(this.livello_numericUpDown);
             this.Controls.Add(this.labelBonusView);
             this.Controls.Add(this.Bonus_dataGridView);
             this.Controls.Add(this.groupBox2);
@@ -607,9 +694,11 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.boxRazza);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FinestraGenerazionePG";
-            this.Text = "Form1";
+            this.Text = "Generazione PG";
             ((System.ComponentModel.ISupportInitialize)(this.spinFor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinDes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinCos)).EndInit();
@@ -622,6 +711,9 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Bonus_dataGridView)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.livello_numericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -676,6 +768,13 @@
         private System.Windows.Forms.Button desBonus_button;
         private System.Windows.Forms.Button forBonus_button;
         private System.Windows.Forms.Label labelBonusView;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nuovoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem apriToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem salvaToolStripMenuItem;
+        private System.Windows.Forms.NumericUpDown livello_numericUpDown;
+        private System.Windows.Forms.Label labelEsperienza;
     }
 }
 

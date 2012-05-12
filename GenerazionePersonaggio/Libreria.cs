@@ -5,6 +5,55 @@ using System.Text;
 
 namespace WindowsFormsApplication1
 {
+    public static class Libreria
+    {
+        public static string pathFileAbilita = @"C:\TestFolder\abilita.txt";
+        public enum Caratterisiche
+        {
+            FOR,
+            DES,
+            COS,
+            INT,
+            SAG,
+            CAR
+        };
+        public static int calcolaEsp(int liv)
+        {
+            int val=0;
+            if (liv <= 1)
+                return 0;
+            else
+                val = calcolaEsp(liv - 1) + (liv-1);
+            return val;
+        }
+        public static int attaccoBuono(int lv)
+        { return lv; }
+        public static int attaccoMedio(int lv)
+        { 
+            double diff;
+            
+            diff = lv / 4.0;
+            diff = Math.Ceiling(diff);
+            return (int)(lv - diff);        
+        }
+        public static int attaccoScarso(int lv)
+        {
+            return lv / 2;
+        }
+
+        public static string listaAttacchi(int attacco)
+        {
+            string attaccoStr = attacco.ToString();
+            if ((attacco - 5) > 0)
+                attaccoStr += "/"+listaAttacchi(attacco - 5);
+            else
+                return attacco.ToString();
+            return attaccoStr;
+        
+        }
+
+    }    
+    
     public static class Dado
     {
         public static int D6(Random gen)
@@ -52,21 +101,7 @@ namespace WindowsFormsApplication1
 
         }
     }
-
-    public static class Libreria
-    {
-        public enum Caratterisiche
-        {
-            FOR,
-            DES,
-            COS,
-            INT,
-            SAG,
-            CAR
-        };    
-
-   }
-
+    
     public class GestioneBonus
     {
         public Dictionary<string, int> diz;
@@ -77,7 +112,6 @@ namespace WindowsFormsApplication1
 
         public void add(string label, int value)
         { diz[label] = value; }
-
         public int get(string label)
         {
             if (diz.ContainsKey(label))
@@ -85,7 +119,6 @@ namespace WindowsFormsApplication1
             else
                 return 0;
         }
-
         public int sum()
         {
             int val = 0;
@@ -93,14 +126,12 @@ namespace WindowsFormsApplication1
                 val += i;
             return val;        
         }
-
         public void erase(string label)
         {
             if (diz.ContainsKey(label))
                 diz.Remove(label);
             return;        
         }
-    
     
     }
 }

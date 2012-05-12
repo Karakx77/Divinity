@@ -16,6 +16,12 @@ namespace WindowsFormsApplication1
         { return 0; }
     }
 
+    public class Mezzelfo: Razza
+    {
+        public int modCaratteristica(Libreria.Caratterisiche caratteristica)
+        { return 0; }
+    }
+
     public class Nano : Razza
     {
         public int modCaratteristica(Libreria.Caratterisiche caratteristica)
@@ -56,4 +62,34 @@ namespace WindowsFormsApplication1
             return mod;
         }
     }
+
+    public class Gnomo : Razza
+    {
+        public int modCaratteristica(Libreria.Caratterisiche caratteristica)
+        {
+            int mod = 0;
+            if (caratteristica == Libreria.Caratterisiche.COS)
+                mod = +2;
+            else if (caratteristica == Libreria.Caratterisiche.FOR)
+                mod = -2;
+            return mod;
+        }
+    }
+
+    public class Halfling : Razza
+    {
+        public int modCaratteristica(Libreria.Caratterisiche caratteristica)
+        {
+            int mod = 0;
+            if (caratteristica == Libreria.Caratterisiche.DES)
+                mod = +2;
+            else if (caratteristica == Libreria.Caratterisiche.FOR)
+                mod = -2;
+            return mod;
+        }
+    }
+
+
+
+
 }

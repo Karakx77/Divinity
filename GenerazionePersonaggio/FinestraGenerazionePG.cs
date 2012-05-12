@@ -10,8 +10,7 @@ using System.Windows.Forms;
 namespace WindowsFormsApplication1
 {
     public partial class FinestraGenerazionePG : Form
-    {
-        
+    {        
         Personaggio pg;
         Abilita my_abilita;
         Random generatore;
@@ -39,7 +38,15 @@ namespace WindowsFormsApplication1
             aggiorna();
             return;
         }
-                   
+
+        private void livello_numericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            int lv=(int)livello_numericUpDown.Value;
+            pg.livello = lv;
+            //labelEsperienza.Text = (Libreria.calcolaEsp(lv)*1000).ToString();
+            //labelEsperienza.Text = Libreria.attaccoScarso(lv).ToString();
+            labelEsperienza.Text = Libreria.listaAttacchi(lv);
+        }
 
         private void boxRazza_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -98,7 +105,6 @@ namespace WindowsFormsApplication1
         {
             if (e.ColumnIndex == 4 && e.RowIndex >= 0)
             {
-                Bonus_dataGridView.Enabled = true;
                 string label = Abilita_dataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
                 bonusAttivo = my_abilita.getBonus(label);
                 ridisegnaBonus("Abilità "+label);
@@ -171,6 +177,7 @@ namespace WindowsFormsApplication1
         {
             if (bonusAttivo != null)
             {
+                Bonus_dataGridView.Enabled = true;
                 Bonus_dataGridView.Rows.Clear();
                 foreach (String s in bonusAttivo.diz.Keys)
                 { Bonus_dataGridView.Rows.Add(s, bonusAttivo.get(s).ToString()); }
@@ -268,6 +275,8 @@ namespace WindowsFormsApplication1
             ridisegnaBonus("Carisma");
             aggiorna();
         }
+
+        
 
       
 

@@ -10,14 +10,12 @@ namespace WindowsFormsApplication1
         public String[] abilita;
         private Dictionary<String, int> dizBase;
         private Dictionary<String, Libreria.Caratterisiche> dizMod;
-
         private Dictionary<String, GestioneBonus> dizBonus;
-        
-        Personaggio personaggio;
+        private Personaggio personaggio;
 
         public Abilita(Personaggio p)
         {
-            String[] riga = System.IO.File.ReadAllLines(@"C:\TestFolder\abilita.txt");
+            String[] riga = System.IO.File.ReadAllLines(Libreria.pathFileAbilita);
             personaggio = p;
             dizBase = new Dictionary<string, int>();
             dizBonus = new Dictionary<string, GestioneBonus>();
@@ -52,10 +50,8 @@ namespace WindowsFormsApplication1
                 }         
             }
             abilita = dizBase.Keys.ToArray<String>();
-
         }
        
-
         public int getPunteggio(string abilita)
         {
             int punteggio;
@@ -80,31 +76,17 @@ namespace WindowsFormsApplication1
         }
 
         public int getPunteggioBonus(string abilita)
-        { return dizBonus[abilita].sum(); }
+        {   
+            return dizBonus[abilita].sum(); 
+        }
 
         public void setPunteggioBase(string abilita, int value)
         {
             int i;
             if (dizBase.TryGetValue(abilita, out i))
                 dizBase[abilita] = value;        
-        }
-
-        public void setPunteggioBonus(string abilita, int value, string label)
-        {
-            if (dizBonus.ContainsKey(abilita))
-            { dizBonus[abilita].add(label, value); }
-            return;   
-        }
-
-        public GestioneBonus getAllPunteggiBonus(string abilita)
-        { return dizBonus[abilita];  }
-
-        public void removePunteggioBonus(string abilita, string label)
-        {
-            dizBonus[abilita].erase(label);
-            return;
-        }
-
+        }       
+        
         public GestioneBonus getBonus(string abilita)
         {
             if (dizBonus.ContainsKey(abilita))

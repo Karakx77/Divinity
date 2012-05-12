@@ -12,6 +12,7 @@ namespace WindowsFormsApplication1
         public String nome;
         Dictionary<Libreria.Caratterisiche,GestioneBonus> bonus;
         private Razza razza;
+        public int livello;
 
         private int forza;
         public int For
@@ -19,7 +20,8 @@ namespace WindowsFormsApplication1
             get
             {
                 int val = forza + razza.modCaratteristica(Libreria.Caratterisiche.FOR)+calcolaBonus(Libreria.Caratterisiche.FOR);
-                return (val<0) ? 0 : val; 
+                //return (val<0) ? 0 : val; 
+                return val;
             }
             set
             { forza = value - razza.modCaratteristica(Libreria.Caratterisiche.FOR) - calcolaBonus(Libreria.Caratterisiche.FOR); }
@@ -31,7 +33,8 @@ namespace WindowsFormsApplication1
             get
             {
                 int val = costituzione + razza.modCaratteristica(Libreria.Caratterisiche.COS) + calcolaBonus(Libreria.Caratterisiche.COS);
-                return (val < 0) ? 0 : val; 
+                //return (val<0) ? 0 : val; 
+                return val;
             }
             set
             { costituzione = value - razza.modCaratteristica(Libreria.Caratterisiche.COS) - calcolaBonus(Libreria.Caratterisiche.COS); }
@@ -43,7 +46,8 @@ namespace WindowsFormsApplication1
             get
             {
                 int val = destrezza + razza.modCaratteristica(Libreria.Caratterisiche.DES)+calcolaBonus(Libreria.Caratterisiche.DES);
-                return (val < 0) ? 0 : val; 
+                //return (val<0) ? 0 : val; 
+                return val; 
             }
             set
             { destrezza = value - razza.modCaratteristica(Libreria.Caratterisiche.DES) - calcolaBonus(Libreria.Caratterisiche.DES); }
@@ -55,7 +59,8 @@ namespace WindowsFormsApplication1
             get
             {
                 int val = intelligenza + razza.modCaratteristica(Libreria.Caratterisiche.INT) + calcolaBonus(Libreria.Caratterisiche.INT);
-                return (val < 0) ? 0 : val; 
+                //return (val<0) ? 0 : val; 
+                return val;
             }
             set
             { intelligenza = value - razza.modCaratteristica(Libreria.Caratterisiche.INT) - calcolaBonus(Libreria.Caratterisiche.INT); }
@@ -67,7 +72,8 @@ namespace WindowsFormsApplication1
             get
             {
                 int val = saggezza + razza.modCaratteristica(Libreria.Caratterisiche.SAG) + calcolaBonus(Libreria.Caratterisiche.SAG);
-                return (val < 0) ? 0 : val; 
+                //return (val<0) ? 0 : val; 
+                return val;
             }
             set
             { saggezza = value - razza.modCaratteristica(Libreria.Caratterisiche.SAG) - calcolaBonus(Libreria.Caratterisiche.SAG); }
@@ -89,6 +95,7 @@ namespace WindowsFormsApplication1
         {
             razza = new Umano();
             bonus = new Dictionary<Libreria.Caratterisiche, GestioneBonus>();
+            livello = 1;
 
             bonus[Libreria.Caratterisiche.FOR] = new GestioneBonus();
             bonus[Libreria.Caratterisiche.DES] = new GestioneBonus();
@@ -167,10 +174,7 @@ namespace WindowsFormsApplication1
 
         public int calcolaBonus(Libreria.Caratterisiche c)
         { return bonus[c].sum(); }
-        public void addBonus(Libreria.Caratterisiche c, string label, int val)
-        { bonus[c].add(label, val); return; }
-        public void removeBonus(Libreria.Caratterisiche c, string label)
-        { bonus[c].erase(label); return; }
+       
         public GestioneBonus getBonus(Libreria.Caratterisiche c)
         {return bonus[c];}
 
